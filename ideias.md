@@ -1,7 +1,0 @@
-- jogo de adivinhação de musica?
-- gerador de frases da rádio?
-- vídeo de fundo?
-- mouse por cima do logo aumentar?
-- logo mexer conforme a musica?
-- botao dica?
-- propagandas de marcas do jogo?
