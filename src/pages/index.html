@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rádios GTA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop>
+        <source src="../assets/vice-city-teste.mp4" type="video/mp4">
+    </video>
+
+    <!-- Música de fundo -->
+    <audio autoplay loop>
+        <source src="../songs/Cum On Feel The Noize.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- LOGO DOS JOGOS AQUI-->
+
+    <!-- <div>
+        <button class="controles">VOLTAR</button>
+        <button class="controles">PLAY/PAUSE</button>
+        <button class="controles">AVANÇAR</button>
+    </div> -->
+
+    <div class="principal">
+
+        <div>
+            <div class="carrossel1" id="carrossel1">
+                <img src="../assets/k-dust.png" alt="logo" class="logo-secundario">
+                <img src="../assets/v-rock.png" alt="logo" class="logo">
+                <img src="../assets/k-rose.png" alt="logo" class="logo-secundario">
+            </div>
+    
+            <div class="carrossel2" id="carrossel2">
+                <img src="../assets/k-rose.png" alt="logo" class="logo-secundario">
+                <img src="../assets/k-dust.png" alt="logo" class="logo">
+                <img src="../assets/v-rock.png" alt="logo" class="logo-secundario">
+            </div>
+    
+            <div class="carrossel3" id="carrossel3">
+                <img src="../assets/v-rock.png" alt="logo" class="logo-secundario">
+                <img src="../assets/k-rose.png" alt="logo" class="logo">
+                <img src="../assets/k-dust.png" alt="logo" class="logo-secundario">
+            </div>
+        </div>
+
+        <div>
+            <button onclick="handlemenos()" class="botao-imagem">
+                <img src="../assets/seta-gta-sa.png" alt="" class="setinha">
+            </button>
+
+            <button onclick="handle()" class="botao-imagem">
+                <img src="../assets/seta-gta-sa.png" alt="" class="setinha-direita">
+            </button>
+        </div>
+
+        <form>
+            <input type="text" placeholder="Digite o nome da música" class="input">
+        </form>
+
+        <div class="frase">“While other stations' listeners are at school...we're shoplifting! V-Rock.”</div>
+
+        <div id="rodape">Tocando agora: Cum on Feel the Noise</div>
+    </div>
+</body>
+</html>
