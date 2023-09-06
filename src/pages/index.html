@@ -17,18 +17,26 @@
     </video>
 
     <!-- Música de fundo -->
-    <audio autoplay loop>
+    <!-- <audio autoplay loop>
         <source src="../songs/Cum On Feel The Noize.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
-    </audio>
+    </audio> -->
 
-    <!-- LOGO DOS JOGOS AQUI-->
+    <div><img src="../assets/vice-city.png" style="width: 150px; margin-left: 10px; margin-top: 10px;"></div>
 
-    <!-- <div>
-        <button class="controles">VOLTAR</button>
-        <button class="controles">PLAY/PAUSE</button>
-        <button class="controles">AVANÇAR</button>
-    </div> -->
+    <div class="modal-container" id="modal">
+        <div class="topo-modal">G.T.A Radio Guesser</div>
+
+        <div class="modal-conteudo">
+            <div class="texto-conteudo-modal"><span class="azul">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer in suscipit quam. Quisque vel risus quis mauris venenatis elementum? </div>
+            <img src="../assets/tommy.png" class="tommy-modal">
+
+            <div class="clear"></div>
+
+            <button class="btn-modal-sim" onclick="fecharModal()">SIM</button>
+            <button class="btn-modal-nao" onclick="fecharModal()">NÃO</button>
+        </div>
+    </div>
 
     <div class="principal">
 
@@ -68,7 +76,29 @@
 
         <div class="frase">“While other stations' listeners are at school...we're shoplifting! V-Rock.”</div>
 
-        <div id="rodape">Tocando agora: Cum on Feel the Noise</div>
+        <div class="tracklist">
+            <strong>TrackList:</strong><br>
+            - Alcatrazz - God Blessed Video (1985)<br>
+            - Anthrax - Madhouse (1985)<br>
+            - Autograph - Turn Up The Radio (1984)<br>
+            - The Cult - She Sells Sanctuary (1985)<br>
+            - David Lee Roth - Yankee Rose (1986)<br>
+            - Iron Maiden - 2 Minutes To Midnight (1984)<br>
+            - Judas Priest - You've Got Another Thing Comin' (1982)<br>
+            - Love Fist - Dangerous Bastard (2002)<br>
+            - Love Fist - Fist Fury (2002)<br>
+            - Loverboy - Working for the Weekend (1981)<br>
+            - Megadeth - Peace Sells (1986)<br>
+            - Mötley Crüe - Too Young To Fall In Love (1983)<br>
+            - Ozzy Osbourne - Bark At The Moon (1983)<br>
+            - Quiet Riot - Cum On Feel the Noize (1983)<br>
+            - Slayer - Raining Blood (1986)<br>
+            - Tesla - Cumin' Atcha Live (1986)<br>
+            - Twisted Sister - I Wanna Rock (1984)<br>
+        </div>
+
+        <div class="score">Streak: 0</div>
     </div>
+
 </body>
 </html>
