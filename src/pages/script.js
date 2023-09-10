@@ -8,15 +8,33 @@ var vrock = [
     '../songs//v-rock/Yankee Rose.mp3',
 ];
 
-var kdust = [
-    '../songs/k-dust/Free Bird.mp3',
-    '../songs/k-dust/Hold the Line.mp3',
+var kdst = [
+    '../songs/k-dst/Free Bird.mp3',
+    '../songs/k-dst/Hold the Line.mp3',
 ];
 
 var krose = [
     '../songs/k-rose/Bed Of Roses.mp3',
     '../songs/k-rose/I Love a Rainy Night.mp3',
 ];
+
+var frasesPorCarrossel = {
+    1: '"While other stations listeners are at school... were shoplifting! V-Rock."',
+    2: '"If the police cant stop you... you must be on... the dust."',
+    3: '"From cow pokin’ to cow tippin’. And all the fun in between! K-Rose"',
+};
+
+var logosPorCarrossel = {
+    1: '../assets/vicecityquasecentralizado.png',
+    2: '../assets/sanandreas.png',
+    3: '../assets/sanandreas.png',
+};
+
+var videosDeFundoPorCarrossel = {
+    1: '../assets/vice-city-teste.mp4',
+    2: '../assets/sanandreas1.mp4', 
+    3: '../assets/sanandreas2.mp4', 
+}; 
 
 // Função para avançar para o próximo slide no carrossel
 function handle() {
@@ -35,6 +53,16 @@ function handle() {
     }
 
     document.getElementById(`carrossel${currentCarrossel}`).style.display = 'block';
+
+    // Atualize a frase
+    var frase = frasesPorCarrossel[currentCarrossel];
+    document.querySelector(".frase").textContent = frase;
+
+    // Atualize o logo
+    var logoPath = logosPorCarrossel[currentCarrossel];
+    document.querySelector(".logos-jogos").src = logoPath;
+
+    updateVideoBackground(currentCarrossel);
 }
 
 // Função para retroceder para o slide anterior no carrossel
@@ -54,6 +82,17 @@ function handlemenos() {
     }
 
     document.getElementById(`carrossel${currentCarrossel}`).style.display = 'block';
+
+    // Atualize a frase
+    var frase = frasesPorCarrossel[currentCarrossel];
+    document.querySelector(".frase").textContent = frase;
+
+    // Atualize o logo
+    var logoPath = logosPorCarrossel[currentCarrossel];
+    document.querySelector(".logos-jogos").src = logoPath;
+
+    // Atualiza o vídeo de fundo com base no carrossel atual
+    updateVideoBackground(currentCarrossel);
 }
 
 // Função para abrir o modal
@@ -79,7 +118,26 @@ function getRandomSong(seta) {
         var randomIndex = Math.floor(Math.random() * vrock.length);
         return vrock[randomIndex];
     }else if (currentCarrossel == 3 && seta == "direita" || currentCarrossel == 1 && seta == "esquerda"){
-        var randomIndex = Math.floor(Math.random() * kdust.length);
-        return kdust[randomIndex];
+        var randomIndex = Math.floor(Math.random() * kdst.length);
+        return kdst[randomIndex];
     }
+}
+
+// Função para atualizar o vídeo de fundo com base no carrossel atual
+function updateVideoBackground(carrossel) {
+    const videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.classList.add('video-hidden'); // Adicione a classe para ocultar o vídeo
+
+    setTimeout(function () {
+        const videoSrc = videosDeFundoPorCarrossel[carrossel];
+        videoPlayer.src = videoSrc;
+        videoPlayer.load();
+
+        // Remova a classe de ocultação para revelar o novo vídeo com uma transição de fade
+        setTimeout(function () {
+            videoPlayer.classList.remove('video-hidden');
+        }, 100);
+
+        videoPlayer.play();
+    }, 1000); // Atraso para dar tempo à transição de fade
 }
