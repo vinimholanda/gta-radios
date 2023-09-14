@@ -241,3 +241,21 @@ video {
 .video-hidden {
     opacity: 0;
 }
+
+.btn-enviar{
+    height: 40px;
+    width: 60px;
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    background-color: #00A8FF;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    font-size: 15px;
+    border: none;
+}
+
+.btn-enviar:hover{
+    color: #00A8FF;
+    background-color: #FFF;
+}

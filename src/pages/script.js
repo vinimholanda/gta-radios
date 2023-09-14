@@ -1,7 +1,6 @@
-// 1 - V-Rock, 2- K-DST, 
-
 let currentCarrossel = 1;
 let setlist = 1
+let nomeDaMusicaAtual = "nenhuma"
 
 var vrock = [
     '../songs/v-rock/Cum On Feel The Noize.mp3',
@@ -113,12 +112,15 @@ function getRandomSong(seta) {
 
     if(currentCarrossel == 1 && seta == "direita" || currentCarrossel == 2 && seta == "esquerda"){
         var randomIndex = Math.floor(Math.random() * krose.length);
+        nomeDaMusicaAtual = krose[randomIndex]
         return krose[randomIndex];
     }else if (currentCarrossel == 2 && seta == "direita" || currentCarrossel == 3 && seta == "esquerda"){
         var randomIndex = Math.floor(Math.random() * vrock.length);
+        nomeDaMusicaAtual = vrock[randomIndex]
         return vrock[randomIndex];
     }else if (currentCarrossel == 3 && seta == "direita" || currentCarrossel == 1 && seta == "esquerda"){
         var randomIndex = Math.floor(Math.random() * kdst.length);
+        nomeDaMusicaAtual = kdst[randomIndex]
         return kdst[randomIndex];
     }
 }
@@ -140,4 +142,26 @@ function updateVideoBackground(carrossel) {
 
         videoPlayer.play();
     }, 1000); // Atraso para dar tempo à transição de fade
+}
+
+function verificarMusica() {
+    // Obtenha o valor inserido pelo usuário
+    var nomeDaMusicaDigitada = document.getElementById('nomeDaMusica').value;
+    
+    // Converte para maiúsculas
+    nomeDaMusicaDigitada = nomeDaMusicaDigitada.toUpperCase()
+    nomeDaMusicaAtual = nomeDaMusicaAtual.toUpperCase()
+
+    // Verifique se o nome da música está presente em uma das listas
+    if (nomeDaMusicaDigitada === ''){
+        alert('Por favor, digite o nome da música.');
+    }
+    else if (nomeDaMusicaAtual.includes(nomeDaMusicaDigitada)) {
+        alert('Resposta certa!');
+    } else{
+        alert('Resposta errada!')
+    }
+
+    // Limpe o campo de entrada após a verificação
+    document.getElementById('nomeDaMusica').value = '';
 }
