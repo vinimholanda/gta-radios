@@ -1,19 +1,34 @@
 let currentCarrossel = 1;
 let setlist = 1
+let nomeDaMusicaDigitada = "nenhuma"
 let nomeDaMusicaAtual = "nenhuma"
 
 var vrock = [
-    '../songs/v-rock/Cum On Feel The Noize.mp3',
-    '../songs//v-rock/Yankee Rose.mp3',
+    '../songs/v-rock/Cum On Feel The Noize.mp3', 
+    '../songs/v-rock/Yankee Rose.mp3',
 ];
 
 var kdst = [
-    '../songs/k-dst/Free Bird.mp3',
-    '../songs/k-dst/Hold the Line.mp3',
+    '../songs/k-dust/A Horse With No Name.mp3',
+    '../songs/k-dust/Barracuda.mp3', 
+    '../songs/k-dust/Eminence Front.mp3', 
+    '../songs/k-dust/Free Bird.mp3',
+    '../songs/k-dust/Get Down To It.mp3',
+    '../songs/k-dust/Hold the Line.mp3',
+    "../songs/k-dust/Runnin' Down A Dream.mp3",
+    '../songs/k-dust/Slow Ride.mp3',
+    '../songs/k-dust/Smokin.mp3',
+    '../songs/k-dust/Somebody up There Likes Me.mp3', 
+    '../songs/k-dust/Some Kind Of Wonderful.mp3', 
+    '../songs/k-dust/Strutter.mp3',
+    '../songs/k-dust/Two Tickets to Paradise.mp3', 
+    '../songs/k-dust/White Wedding.mp3', 
+    '../songs/k-dust/Woman To Woman.mp3', 
+    '../songs/k-dust/Young Turks.mp3',
 ];
 
 var krose = [
-    '../songs/k-rose/Bed Of Roses.mp3',
+    '../songs/k-rose/Bed Of Roses.mp3', 
     '../songs/k-rose/I Love a Rainy Night.mp3',
 ];
 
@@ -21,6 +36,12 @@ var frasesPorCarrossel = {
     1: '"While other stations listeners are at school... were shoplifting! V-Rock."',
     2: '"If the police cant stop you... you must be on... the dust."',
     3: '"From cow pokin’ to cow tippin’. And all the fun in between! K-Rose"',
+};
+
+var trackListPorCarrossel ={
+    1: 'a',
+    2: 'b',
+    3: 'c',
 };
 
 var logosPorCarrossel = {
@@ -35,9 +56,14 @@ var videosDeFundoPorCarrossel = {
     3: '../assets/sanandreas2.mp4', 
 }; 
 
+function increaseScore() {
+    score++;
+    scoreElement.textContent = score;
+}
+
 // Função para avançar para o próximo slide no carrossel
 function handle() {
-
+    
     var audioPlayer = document.getElementById('audioPlayer');
     var randomSong = getRandomSong("direita");
     audioPlayer.src = randomSong;
@@ -80,6 +106,7 @@ function handlemenos() {
         currentCarrossel = 1;
     }
 
+
     document.getElementById(`carrossel${currentCarrossel}`).style.display = 'block';
 
     // Atualize a frase
@@ -92,6 +119,8 @@ function handlemenos() {
 
     // Atualiza o vídeo de fundo com base no carrossel atual
     updateVideoBackground(currentCarrossel);
+
+    console.log(nomeDaMusicaAtual)
 }
 
 // Função para abrir o modal
@@ -146,20 +175,28 @@ function updateVideoBackground(carrossel) {
 
 function verificarMusica() {
     // Obtenha o valor inserido pelo usuário
-    var nomeDaMusicaDigitada = document.getElementById('nomeDaMusica').value;
+    nomeDaMusicaDigitada = document.getElementById('nomeDaMusica').value;
     
+    //remover ".mp3" e "../songs/k-dust/"
+    nomeDaMusicaAtual = nomeDaMusicaAtual.slice(16, -4);
+
     // Converte para maiúsculas
     nomeDaMusicaDigitada = nomeDaMusicaDigitada.toUpperCase()
     nomeDaMusicaAtual = nomeDaMusicaAtual.toUpperCase()
+
 
     // Verifique se o nome da música está presente em uma das listas
     if (nomeDaMusicaDigitada === ''){
         alert('Por favor, digite o nome da música.');
     }
-    else if (nomeDaMusicaAtual.includes(nomeDaMusicaDigitada)) {
+    else if (nomeDaMusicaAtual == nomeDaMusicaDigitada) {
         alert('Resposta certa!');
+        handle();
     } else{
+        console.log(nomeDaMusicaAtual)
+        console.log(nomeDaMusicaDigitada)
         alert('Resposta errada!')
+        handle()
     }
 
     // Limpe o campo de entrada após a verificação
