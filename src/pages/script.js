@@ -2,10 +2,23 @@ let currentCarrossel = 1;
 let setlist = 1
 let nomeDaMusicaDigitada = "nenhuma"
 let nomeDaMusicaAtual = "nenhuma"
+let streak = 0;
 
 var vrock = [
+    '../songs/v-rock/2 Minutes to Midnight.mp3', 
+    '../songs/v-rock/Cumin Atcha Live.mp3',
     '../songs/v-rock/Cum On Feel The Noize.mp3', 
-    '../songs/v-rock/Yankee Rose.mp3',
+    '../songs/v-rock/Dangerous Bastard.mp3',
+    '../songs/v-rock/Fist Fury.mp3',
+    '../songs/v-rock/God Blessed Video.mp3',
+    '../songs/v-rock/I Wanna Rock.mp3',
+    '../songs/v-rock/Madhouse.mp3',
+    '../songs/v-rock/Peace Sells.mp3',
+    '../songs/v-rock/Raining Blood.mp3',
+    '../songs/v-rock/She Sells Sanctuary.mp3',
+    '../songs/v-rock/Too Young to Fall In Love.mp3',
+    '../songs/v-rock/Turn Up the Radio.mp3',
+    '../songs/v-rock/Working for the Weekend.mp3',
 ];
 
 var kdst = [
@@ -92,6 +105,7 @@ function handle() {
 
 // Função para retroceder para o slide anterior no carrossel
 function handlemenos() {
+
 
     var audioPlayer = document.getElementById('audioPlayer');
     var randomSong = getRandomSong("esquerda");
@@ -191,11 +205,15 @@ function verificarMusica() {
     }
     else if (nomeDaMusicaAtual == nomeDaMusicaDigitada) {
         alert('Resposta certa!');
+        streak++; 
+        document.getElementById('scoreElement').textContent = `Streak: ${streak}`;
         handle();
     } else{
         console.log(nomeDaMusicaAtual)
         console.log(nomeDaMusicaDigitada)
         alert('Resposta errada!')
+        streak = 0;
+        document.getElementById('scoreElement').textContent = `Streak: ${streak}`;
         handle()
     }
 
